@@ -4,10 +4,10 @@ const theaterController = require('../controllers/theater.controller');
 
 
 router.post("/theaters", theaterController.createTheater )
-router.post("./theaters/:theaterid", theaterController.addShow)
+router.post("/theaters/:theaterId/addShow", theaterController.addShow)
 
 router.get("/theaters", theaterController.getAllTheaters)
 router.get('/theaters/:theaterId/dates', theaterController.getDatesForTheater);
-router.get('/theaters/:theaterId/movies', theaterController.getMoviesForTheaterOnDate);
+router.get('/theaters/:movieId/movies/:date', theaterController.getMoviesForTheaterOnDate);
 
 module.exports = router;

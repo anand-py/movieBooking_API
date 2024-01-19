@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const showtimeSchema = new mongoose.Schema({
-    _id: { type: mongoose.Types.ObjectId, auto: true },
-    movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true },
-    theater: { type: mongoose.Schema.Types.ObjectId, ref: 'Theater', required: true },
-    date: { type: Date, required: true },
-    time: { type: String, required: true }
-}, { timestamps: true });
+  theaterId: { type: mongoose.Schema.Types.ObjectId, ref: 'Theater', required: true },
+  date: { type: Date, required: true },
+  time: { type: String, required: true }, // Assuming time is a string, adjust as needed
+  movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true },
+});
 
-module.exports = mongoose.model('Showtime', showtimeSchema);
+const Showtime = mongoose.model('Showtime', showtimeSchema);
+
+module.exports = Showtime;
